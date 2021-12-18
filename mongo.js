@@ -6,8 +6,8 @@ if (process.argv.length < 3) {
 }
 
 if (process.argv.length === 4) {
-    console.log('Please provide the name and the number as arguments')
-    process.exit(1)
+  console.log('Please provide the name and the number as arguments')
+  process.exit(1)
 }
 
 const password = process.argv[2]
@@ -30,16 +30,16 @@ const person = new Person({
 })
 
 if (process.argv.length === 3) {
-    Person.find({}).then(result => {
-        result.forEach(person => {
-          console.log(person)
-        })
-        mongoose.connection.close()
-      })
+  Person.find({}).then(result => {
+    result.forEach(person => {
+      console.log(person)
+    })
+    mongoose.connection.close()
+  })
 } else if (process.argv.length === 5) {
-    person.save().then(result => {
+  person.save().then(() => {
     console.log('person saved!')
     mongoose.connection.close()
-    })
+  })
 }
 
